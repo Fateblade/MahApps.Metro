@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <Import Project="..\..\..\_Build\FatebladeProjectDefaultsImport.msb.xml" />
+
     <!-- Project properties -->
     <PropertyGroup>
         <AssemblyName>MahApps.Metro</AssemblyName>
@@ -73,5 +76,9 @@
             <OutputPath>Styles\Themes</OutputPath>
         </XAMLColorSchemeGeneratorItems>
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <CallTarget Targets="CopyProjectToDll" />
+    </Target>
 
 </Project>
